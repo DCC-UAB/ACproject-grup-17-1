@@ -4,7 +4,7 @@
 import pandas as pd
 
 # Ruta al archivo CSV
-archivo_datos = r"C:\Users\abell\Downloads\archive (4)\training.1600000.processed.noemoticon.csv"
+archivo_datos = "training.1600000.processed.noemoticon.csv"
 
 # Cargar el conjunto de datos
 column_names = ['target', 'ids', 'date', 'flag', 'user', 'text']
