@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Nov 28 12:31:57 2024
 
-@author: abell
-"""
 
 import pandas as pd
 
