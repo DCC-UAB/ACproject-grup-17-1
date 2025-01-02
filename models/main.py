@@ -692,14 +692,15 @@ def preprocessar_i_vectoritzar_dades(dataset_path, max_features, lemmatization=T
         text = re.sub(r'http\S+|www\.\S+', '', text)
         text = re.sub(r'@\w+', '', text)
         text = re.sub(r'#', '', text)
-        text = re.sub(r'[\^\w\s]', '', text)
+        text = re.sub(r'[^\w\s]', '', text)
 
         if lemmatization:
             return ' '.join([lemmatizer.lemmatize(word) for word in text.split()])
         else:
             return ' '.join([stemmer.stem(word) for word in text.split()])
 
-    X = [preprocess_text(text) for text in X]
+    processed_data = [(preprocess_text(text), label) for text, label in zip(X, y) if preprocess_text(text).strip()]
+    X, y = zip(*processed_data)  # Desempaquetar dades processades
 
     # Aplicar TF-IDF
     vectorizer = TfidfVectorizer(
@@ -710,8 +711,8 @@ def preprocessar_i_vectoritzar_dades(dataset_path, max_features, lemmatization=T
     X = vectorizer.fit_transform(X)
 
     # Dividir dades
-    X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.2, random_state=42)
-    X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
+    X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.2, random_state=42)  # 70% per entrenament
+    X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)  # 15% validació, 15% test
 
     combined_data = {
         "X_train": X_train, "y_train": y_train,
