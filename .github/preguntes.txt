@@ -1,0 +1,12 @@
+Aquest es el document on ens farem les preguntes per cada setmana:
+4/12/24:
+    - Si fem ús de stemming en lloc de lemmatization, podríem obtenir una millora significativa en el rendiment del codi?
+    - El dataset està desbalancejat? Si és així, quins algorismes serien més adequats per tractar aquest tipus de dataset?
+    - Quina mesura seria més adequada per avaluar el model, accuracy o F1-score?
+    - Com podria afectar al accuracy del model la imposició d'una longitud màxima als missatges?
+    - Si un missatge conté un emoji, seria possible classificar-lo directament basant-nos en l'emoji present?
+    - Quines altres llibreries de tokenització podríem utilitzar, tenint en compte que es refereix a TF i IDF?
+    - Com podríem determinar els millors paràmetres per als algorismes provats?
+    - Quins són els avantatges i inconvenients d'utilitzar oversampling (per exemple, SMOTE) o undersampling per abordar el desequilibri en el dataset?
+    - Podríem utilitzar embeddings contextuals (com els de BERT) en lloc de TF-IDF per representar els missatges? Això milloraria el rendiment?
+    - Veiem una millor del temps d'execució, quan ja tenim les dades carregades previament, tenitn en copte que aquest proces contindira la filtració de dades, lemmatization/stemming i la matriu tf/idf?
